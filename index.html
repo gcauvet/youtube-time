@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="Percentage Calculator">
+
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <style>
+            .floatRight {float: right;}
+        </style>
+
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div class="row">
+                <div class='card-panel col s12'>
+                    <h5> Youtube time
+                        <span class='floatRight'>
+                            <!-- <a href='../' class='waves-effect waves-teal btn-flat btn-large'>  <i class="material-icons">add</i>Back</a> -->
+                            <a href='../' class="waves-effect waves-teal btn-flat btn-small"><i class="material-icons left">chevron_left</i>Back</a>
+                        </span>
+                    </h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input class="keyListener isNotEmpty" id="youtubeUrl" type="text">
+                            <label for="youtubeUrl">Youtube URL</label>
+                        </div>                        
+                    </div>
+                </form>
+            </div>
+
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input class="keyListener isNotEmpty numeric" id="minutes" type="text">
+                            <label for="minutes">Minutes</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input class="keyListener isNotEmpty numeric" id="seconds" type="text">
+                            <label for="seconds">Seconds</label>
+                        </div>                      
+                    </div>
+                </form>
+            </div>
+
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="result" type="text">
+                        </div>                     
+                    </div>
+                </form>
+            </div>
+
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <a id="resultBtn" class="waves-effect waves-light btn disabled validListener"><i class="material-icons left">content_copy</i>Copy to clipboard</a>
+                        </div>
+                        <div class="input-field col s6">
+                            <a id="goToButton" class="waves-effect waves-light btn disabled validListener"><i class="material-icons left">ondemand_video</i>Go to video</a>
+                        </div>                    
+                    </div>
+                </form>
+            </div>            
+
+            <div class="row">
+                2019 - Smaha - <a href="https://www.smaha-consulting.com">https://www.smaha-consulting.com</a>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <script type="text/javascript">
+
+            const getinputVal = (input) => {           
+                inputVal = $(`#${input}`).val();
+                return !inputVal ? 0 : inputVal;
+            }
+
+            const isYoutubeUrl = (url) => {
+
+                if (url)
+                    return url.match(/^(http(s)??\:\/\/)?(www\.)?((youtube\.com\/watch\?v=)|(youtu.be\/))([a-zA-Z0-9\-_])+$/gi) != null ? true : `${url} is not a valid Youtube URL`;
+                else
+                    return "Please enter a valid Youtube URL";                
+            }
+
+            $('.numeric').on('keypress', function(e) {
+                return e.metaKey || e.which <= 0 || e.which == 8 || /[0-9]/.test(String.fromCharCode(e.which));
+            })
+
+            $(".keyListener").keyup(function() {
+
+                const youtubeUrl = getinputVal('youtubeUrl'),
+                    minutes = getinputVal('minutes'),
+                    seconds = getinputVal('seconds');
+
+                if (isYoutubeUrl(youtubeUrl) === true) {
+
+                    $("#result").val(`${youtubeUrl}&t=${minutes}m${seconds}s`);
+                    $(".validListener").removeClass("disabled");
+                    $("#goToButton").prop('href', `${youtubeUrl}&t=${minutes}m${seconds}s`);
+                } else {
+                    
+                    $("#result").val(`${isYoutubeUrl(youtubeUrl)}`);
+                    $(".validListener").addClass("disabled");
+                    $("#goToButton").prop('href', "#");
+                }
+            });
+
+            $("#resultBtn").on("click", function() {
+            
+                const copyText = document.querySelector("#result");
+
+                copyText.select();
+                document.execCommand("copy");
+            });
+
+        </script>
+    </body>
+</html>
