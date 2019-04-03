@@ -11,6 +11,13 @@
 
         <style>
             .floatRight {float: right;}
+
+            #toast-container {
+                top: auto !important;
+                right: auto !important;
+                bottom: 10%;
+                left:7%;
+            }
         </style>
 
     </head>
@@ -22,7 +29,6 @@
                 <div class='card-panel col s12'>
                     <h5> Youtube time
                         <span class='floatRight'>
-                            <!-- <a href='../' class='waves-effect waves-teal btn-flat btn-large'>  <i class="material-icons">add</i>Back</a> -->
                             <a href='../' class="waves-effect waves-teal btn-flat btn-small"><i class="material-icons left">chevron_left</i>Back</a>
                         </span>
                     </h5>
@@ -69,7 +75,7 @@
                 <form class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <a id="resultBtn" class="waves-effect waves-light btn disabled validListener"><i class="material-icons left">content_copy</i>Copy to clipboard</a>
+                            <a id="copyToClipboard" class="waves-effect waves-light btn disabled validListener"><i class="material-icons left">content_copy</i>Copy to clipboard</a>
                         </div>
                         <div class="input-field col s6">
                             <a id="goToButton" class="waves-effect waves-light btn disabled validListener"><i class="material-icons left">ondemand_video</i>Go to video</a>
@@ -124,12 +130,18 @@
                 }
             });
 
-            $("#resultBtn").on("click", function() {
+            $("#copyToClipboard").on("click", function() {
             
                 const copyText = document.querySelector("#result");
 
                 copyText.select();
                 document.execCommand("copy");
+
+                M.toast({
+                    html: 'URL copied to clipboard!',
+                    displayLength: 2000,
+
+                });
             });
 
         </script>
