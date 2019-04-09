@@ -118,12 +118,10 @@
                     seconds = getinputVal('seconds');
 
                 if (isYoutubeUrl(youtubeUrl) === true) {
-
                     $("#result").val(`${youtubeUrl}&t=${minutes}m${seconds}s`);
                     $(".validListener").removeClass("disabled");
                     $("#goToButton").prop('href', `${youtubeUrl}&t=${minutes}m${seconds}s`);
-                } else {
-                    
+                } else {                  
                     $("#result").val(`${isYoutubeUrl(youtubeUrl)}`);
                     $(".validListener").addClass("disabled");
                     $("#goToButton").prop('href', "#");
@@ -140,7 +138,6 @@
                 M.toast({
                     html: 'URL copied to clipboard!',
                     displayLength: 2000,
-
                 });
             });
 
