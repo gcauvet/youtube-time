@@ -102,7 +102,7 @@
 
             $('.numeric').on('keypress', function(e) {
                 return e.metaKey || e.which <= 0 || e.which == 8 || /[0-9]/.test(String.fromCharCode(e.which));
-            })
+            });
 
             $(".keyListener").keyup(function() {
 
@@ -127,11 +127,7 @@
 
                 copyText.select();
                 document.execCommand("copy");
-
-                M.toast({
-                    html: 'URL copied to clipboard!',
-                    displayLength: 2000,
-                });
+                M.toast({html: 'URL copied to clipboard!', displayLength: 2000});
             });
 
         </script>
