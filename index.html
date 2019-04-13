@@ -4,22 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="Percentage Calculator">
+        <meta name="description" content="Youtube Time">
 
-    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-        <style>
-            .floatRight {float: right;}
-
-            #toast-container {
-                top: auto !important;
-                right: auto !important;
-                bottom: 10%;
-                left:7%;
-            }
-        </style>
-
+        <link rel="stylesheet" href="./css/style.css">
     </head>
 
     <body>
@@ -82,54 +69,7 @@
             </div>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="./js/main.js"></script>
 
-        <script type="text/javascript">
-
-            const getinputVal = (input) => {           
-                inputVal = $(`#${input}`).val();
-                return !inputVal ? 0 : inputVal;
-            }
-
-            const isYoutubeUrl = (url) => {
-
-                if (url)
-                    return url.match(/^(http(s)??\:\/\/)?(www\.)?((youtube\.com\/watch\?v=)|(youtu.be\/))([a-zA-Z0-9\-_])+$/gi) != null ? true : `${url} is not a valid Youtube URL`;
-                else
-                    return "Please enter a valid Youtube URL";                
-            }
-
-            $('.numeric').on('keypress', function(e) {
-                return e.metaKey || e.which <= 0 || e.which == 8 || /[0-9]/.test(String.fromCharCode(e.which));
-            });
-
-            $(".keyListener").keyup(function() {
-
-                const youtubeUrl = getinputVal('youtubeUrl'),
-                    minutes = getinputVal('minutes'),
-                    seconds = getinputVal('seconds');
-
-                if (isYoutubeUrl(youtubeUrl) === true) {
-                    $("#result").val(`${youtubeUrl}&t=${minutes}m${seconds}s`);
-                    $(".validListener").removeClass("disabled");
-                    $("#goToButton").prop('href', `${youtubeUrl}&t=${minutes}m${seconds}s`);
-                } else {                  
-                    $("#result").val(`${isYoutubeUrl(youtubeUrl)}`);
-                    $(".validListener").addClass("disabled");
-                    $("#goToButton").prop('href', "#");
-                }
-            });
-
-            $("#copyToClipboard").on("click", function() {
-            
-                const copyText = document.querySelector("#result");
-
-                copyText.select();
-                document.execCommand("copy");
-                M.toast({html: 'URL copied to clipboard!', displayLength: 2000});
-            });
-
-        </script>
     </body>
 </html>
