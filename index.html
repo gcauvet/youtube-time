@@ -12,64 +12,51 @@
     <body>
         <div class="container">
 
-            <div class="row">
-                <div class='card-panel col s12'>
-                    <h5> Youtube time
-                        <span class='floatRight'>
-                            <a href='../' class="waves-effect waves-teal btn-flat btn-small"><i class="material-icons left">chevron_left</i>Back</a>
-                        </span>
-                    </h5>
+            <div class="row header-container">
+                <div class='rowHeader'>
+                    <h5>Youtube time</h5>
+                    <h2><a href='../' class="">🡐 Back</a></h2>
                 </div>
             </div>
 
             <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input class="keyListener isNotEmpty" id="youtubeUrl" type="text">
-                            <label for="youtubeUrl">Youtube URL</label>
-                        </div>    
-                        <div class="input-field col s3">
-                            <input class="keyListener isNotEmpty numeric" id="minutes" type="text">
-                            <label for="minutes">Minutes</label>
-                        </div>
-                        <div class="input-field col s3">
-                            <input class="keyListener isNotEmpty numeric" id="seconds" type="text">
-                            <label for="seconds">Seconds</label>
-                        </div>                       
-                    </div>
-                </form>
+                <div class="input-field col s6">
+                    <input class="keyListener isNotEmpty" id="youtubeUrl" type="text">
+                    <label for="youtubeUrl">Youtube URL</label>
+                </div>    
+                <div class="input-field col s3">
+                    <input class="keyListener isNotEmpty numeric" id="minutes" type="text">
+                    <label for="minutes">Minutes</label>
+                </div>
+                <div class="input-field col s3">
+                    <input class="keyListener isNotEmpty numeric" id="seconds" type="text">
+                    <label for="seconds">Seconds</label>
+                </div>                       
             </div>
 
             <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="result" type="text">
-                        </div>                     
-                    </div>
-                </form>
+                <div class="input-result">
+                    <input id="result" type="text">
+                </div>
             </div>
 
             <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <a id="copyToClipboard" class="waves-effect waves-light btn disabled validListener"><i class="material-icons left">content_copy</i>Copy to clipboard</a>
-                        </div>
-                        <div class="input-field col s6">
-                            <a id="goToButton" class="waves-effect waves-light btn disabled validListener"><i class="material-icons left">ondemand_video</i>Go to video</a>
-                        </div>                    
-                    </div>
-                </form>
+                <div class="button-copy btn-container">
+                    <button id="copyToClipboard" class="button">Copy to clipboard</button>
+                </div>                        
+                <div class="button-goTo btn-container">
+                    <button id="goToButton" class="button">Go to video</button>
+                </div> 
             </div>            
 
             <div class="row">
-                2019 - Smaha - <a href="https://www.smaha-consulting.com">https://www.smaha-consulting.com</a>
+                <div class="licence">
+                    2019 - Smaha - <a href="https://www.smaha-consulting.com">https://www.smaha-consulting.com</a>
+                </div>
             </div>
         </div>
 
-        <script src="./js/main.js"></script>
+        <!--<script src="./js/main.js"></script>-->
 
     </body>
 </html>
