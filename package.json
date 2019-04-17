@@ -1,0 +1,22 @@
+{
+  "name": "youtube-time",
+  "version": "1.0.0",
+  "description": "Format Youtube link to specific time",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smaha-consulting/youtube-time.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smaha-consulting/youtube-time/issues"
+  },
+  "homepage": "https://github.com/smaha-consulting/youtube-time#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0"
+  }
+}

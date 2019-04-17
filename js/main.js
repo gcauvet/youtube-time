@@ -1,5 +1,5 @@
 const getinputVal = (input) => {           
-    inputVal = $(`#${input}`).val();
+    let inputVal = $(`#${input}`).val();
     return !inputVal ? 0 : inputVal;
 }
 
@@ -8,7 +8,7 @@ const isYoutubeUrl = (url) => {
     if (url)
         return url.match(/^(http(s)??\:\/\/)?(www\.)?((youtube\.com\/watch\?v=)|(youtu.be\/))([a-zA-Z0-9\-_])+$/gi) != null ? true : `${url} is not a valid Youtube URL`;
     else
-        return "Please enter a valid Youtube URL";                
+        return "Please enter a valid Youtube URL";
 }
 
 $('.numeric').on('keypress', function(e) {

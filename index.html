@@ -20,18 +20,20 @@
             </div>
 
             <div class="row">
-                <div class="input-field col s6">
-                    <input class="keyListener isNotEmpty" id="youtubeUrl" type="text">
-                    <label for="youtubeUrl">Youtube URL</label>
-                </div>    
-                <div class="input-field col s3">
-                    <input class="keyListener isNotEmpty numeric" id="minutes" type="text">
-                    <label for="minutes">Minutes</label>
-                </div>
-                <div class="input-field col s3">
-                    <input class="keyListener isNotEmpty numeric" id="seconds" type="text">
-                    <label for="seconds">Seconds</label>
-                </div>                       
+                <div class="input-group">
+                    <div class="group">
+                        <input id="youtubeUrl" class="keyListener isNotEmpty" type="text" required="required"/><span class="highlight"></span><span class="bar"></span>
+                        <label for="youtubeUrl">Youtube URL</label>
+                    </div>
+                    <div class="group">
+                        <input id="minutes" class="keyListener isNotEmpty numeric" type="text" required="required"/><span class="highlight"></span><span class="bar"></span>
+                        <label for="minutes">Minutes</label>
+                    </div>
+                    <div class="group">
+                        <input id="seconds" class="keyListener isNotEmpty numeric" type="text" required="required"/><span class="highlight"></span><span class="bar"></span>
+                        <label for="seconds">Seconds</label>
+                    </div>
+                </div>         
             </div>
 
             <div class="row">
